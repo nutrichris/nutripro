@@ -25,7 +25,8 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements
         PressureFragment.OnFragmentInteractionListener,
-        CalendarFragment.OnFragmentInteractionListener
+        CalendarFragment.OnFragmentInteractionListener,
+        StatisticsFragment.OnFragmentInteractionListener
 {
     private static final String TAG = "mainActivity";
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
 
         @Override
@@ -133,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements
                     return "Pressure";
                 case 2:
                     return "Nutrition";
+                case 3:
+                    return "Statistics";
             }
             return null;
         }
@@ -161,6 +164,9 @@ public class MainActivity extends AppCompatActivity implements
                     break;
                 case 2:
                     rv = PressureFragment.newInstance(new Date(), 0, 0, 0);
+                    break;
+                case 4:
+                    rv = StatisticsFragment.newInstance();
                     break;
                 default:
                     rv = new PlaceholderFragment();
